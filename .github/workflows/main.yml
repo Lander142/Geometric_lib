@@ -1,24 +1,29 @@
-name: Run Unit Tests
+name: Unit Tests
 
 on:
   push:
 
 jobs:
   test:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
 
-    runs-on: ${{ matrix.os }}
-
     steps:
-      - name: Download repository code
-        uses: actions/checkout@v4
-
-      - name: Download Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Run unit tests
-        run: python -m unittest discover -p "*.py" -v
+      - name: Test circle
+        run: python -m unittest -v circle.py
+
+      - name: Test rectangle
+        run: python -m unittest -v rectangle.py
+
+      - name: Test square
+        run: python -m unittest -v square.py
+
+      - name: Test triangle
+        run: python -m unittest -v triangle.py
