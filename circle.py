@@ -1,4 +1,5 @@
 import math
+import unittest
 
 
 def area(r):
@@ -31,3 +32,11 @@ def perimeter(r):
             perimeter(5) -> 31.41592653589793
     '''
     return 2 * math.pi * r
+
+class CirlceTestCase(unittest.TestCase):
+    def test_area_mul(self):
+        res = area(math.pi)
+        self.assertEqual(res, math.pi**3)
+    def test_per_mul(self):
+        res = perimeter(7)
+        self.assertEqual(res, 7 * math.pi * 2)
