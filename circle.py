@@ -33,10 +33,25 @@ def perimeter(r):
     '''
     return 2 * math.pi * r
 
-class CirlceTestCase(unittest.TestCase):
+
+class CircleTestCase(unittest.TestCase):
     def test_area_mul(self):
-        res = area(math.pi)
-        self.assertEqual(res, math.pi**3)
+        self.assertEqual(area(math.pi), math.pi ** 3)
+
     def test_per_mul(self):
-        res = perimeter(7)
-        self.assertEqual(res, 7 * math.pi * 2)
+        self.assertEqual(perimeter(7), 7 * math.pi * 2)
+
+    def test_area_zero(self):
+        self.assertEqual(area(0), 0)
+
+    def test_per_zero(self):
+        self.assertEqual(perimeter(0), 0)
+
+    def test_area_float(self):
+        self.assertAlmostEqual(area(0.5), math.pi * 0.25)
+
+    def test_per_float(self):
+        self.assertAlmostEqual(perimeter(0.5), math.pi)
+
+    def test_area_large(self):
+        self.assertAlmostEqual(area(10**6), math.pi * 10**12)

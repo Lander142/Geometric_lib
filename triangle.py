@@ -1,5 +1,6 @@
 import unittest
 
+
 def area(a, h):
     '''
     Возвращает площадь треугольника по стороне и высоте, проведенной к ней.
@@ -34,11 +35,28 @@ def perimeter(a, b, c):
     '''
     return a + b + c
 
+
 class TriangleTestCase(unittest.TestCase):
     def test_area_mul(self):
-        res = area(10, 10)
-        self.assertEqual(res, 50)
+        self.assertEqual(area(10, 10), 50)
 
     def test_perimeter_mul(self):
-        res = perimeter(5, 10, 15)
-        self.assertEqual(res, 30)
+        self.assertEqual(perimeter(5, 10, 15), 30)
+
+    def test_area_zero_base(self):
+        self.assertEqual(area(0, 10), 0)
+
+    def test_area_zero_height(self):
+        self.assertEqual(area(10, 0), 0)
+
+    def test_area_float(self):
+        self.assertAlmostEqual(area(2.5, 4.0), 5.0)
+
+    def test_per_zero(self):
+        self.assertEqual(perimeter(0, 0, 0), 0)
+
+    def test_per_float(self):
+        self.assertAlmostEqual(perimeter(1.5, 2.5, 3.0), 7.0)
+
+    def test_area_large(self):
+        self.assertEqual(area(10**6, 10**6), 5 * 10**11)
