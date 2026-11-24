@@ -15,7 +15,7 @@ def area(a, b):
         Пример вызова:
             area(3, 4) -> 12
     '''
-    return a * b
+    return a + b
 
 
 def perimeter(a, b):
