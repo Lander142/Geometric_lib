@@ -15,7 +15,7 @@ def area(r):
         Пример вызова:
             area(5) -> 78.53981633974483
     '''
-    return math.pi * r * r
+    return math.pi * r * r * r
 
 
 def perimeter(r):
